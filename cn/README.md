@@ -34,26 +34,28 @@ product.update(itme: new_item)
 ```
 
 - 参考资料
-  - https://stackoverflow.com/questions/42331389/update-embedded-document-in-**mongoid**********
-  - mongoid官方文档 https://docs.mongodb.com/mongoid/current/tutorials/mongoid-documents/
+  - [update embedded document in mongoid](https://stackoverflow.com/questions/42331389/update-embedded-document-in-mongoid)
+  - [mongoid官方文档](https://docs.mongodb.com/mongoid/current/tutorials/mongoid-documents/)
 
-### MongoDB如何对数组元素大于某个值查询
 
-- 使用MongoDB数据库，遇到一个数组查询问题，商品中标签字段为数组，需要查找出标签元素大于2个的商品，按常规思路，先使用Ruby Array[select方法](https://apidock.com/ruby/Array/select):
+
+### MongoDB如何进行数组元素大于某个值的查询
+
+- 遇到一个MongoDB数组查询问题，商品标签字段为数组，需要查找出标签元素大于2个的所有商品，一般情况下，会先使用[Ruby Array select method](https://apidock.com/ruby/Array/select)，如下：
 
   ```ruby
   Product.all.select { |p| p.tags_name.count > 2 }
   ```
-  > 上面方法数量少时不存在性能问题，商品有几万条数据，导致查询很慢，需要优化
+  > 上面方法，在数据量少的时候，不存在性能问题，商品数据很多（需要举出具体例子，达到哪个数量级之后，会有性能问题），会导致查询很慢，需要优化
 
-- 找到一个次优的方法，把标签为空的商品先去掉，再通过select方法查询：
+- 找到一个次优方法，把标签为空的商品先去掉，再通过select方法查询：
 
   ```ruby
   Product.all.where(:tags_name.ne => []).select { |p| p.tags_name.count > 2 }
   ```
-  > 可以减少部分查询，但[mongoid query](https://mongoid.github.io/old/en/mongoid/docs/querying.html#queries)中并不支持数组的筛选，本质还是select方法查询，性能并未改善，需要继续优化
+  > 上面方法可以减少部分查询，但[mongoid query](https://mongoid.github.io/old/en/mongoid/docs/querying.html#queries)中并不支持数组的筛选，本质还是select方法查询，性能并未改善，需要继续优化
 
-- 使用[MongoDB集合自带方法](https://docs.mongodb.com/manual/reference/method/db.collection.find/)，找到对于数组的查询方法，再添加一个筛选条件，只从某两个渠道来的商品
+- 继续寻找更优方法，[MongoDB collection find method](https://docs.mongodb.com/manual/reference/method/db.collection.find/)，找到对于数组的查询方法，再添加一个筛选条件，某两个渠道的商品
   ```ruby
   Product.collection.find(
     {
