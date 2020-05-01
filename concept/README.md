@@ -43,3 +43,9 @@
   - 类，拥有同一种类别的集合
 - module
   - 不可被实例化，不可被继承
+- 对象
+  - https://medium.com/launch-school/the-basics-of-oop-ruby-26eaa97d2e98
+- 抽象
+- 封装
+- 继承
+- 多态
