@@ -123,7 +123,6 @@
 - CDN
   - A content delivery network or conent distribution network is a geographically distributed network of proxy servers and their data centers. The goal is to provide high availability and high performance by distributing the service spatially relative to end-users.内容分发网络
 - 防盗链
-  - 
 - 负载均衡
   - 举了个例子，比如我想去吃海底捞，但是有很多家，我会选择就近的一家，而不是大家都去同一家，这就是负载均衡。这个定义先凑合着用吧
 - 全局负载均衡器：（GSLB Global Server Load Balance）
@@ -155,7 +154,11 @@
 - 散热
 - 功耗
 - 内存
+  - 计算机中，内存指一种设备，用来存储信息，用于在计算机或相关计算机硬件设备中立即使用
+- 硬盘
+  - hard disk drive 硬盘是一个机电数据存储设备 使用磁存储器去存储和检索数字数据，使用一个或多个涂有磁性材料的刚性快速旋转盘片
 - 主板
+  - Motherboard，是在通用计算机和其他可扩展系统中够贱的主要印刷电路板（printed circuit board）
 - 冯诺依曼体系结构（存储程序计算机）
   - 可编程计算机
   - 可存储计算机
@@ -165,6 +168,8 @@
 - 存储器
 - 输入设备
 - 输出设备
+- 显卡
+  - Graphics Card
 #### 数据结构与算法
 - 算法
   - 操作数据的一组方法
@@ -224,3 +229,5 @@
 #### 软件工程
 - 软件工程
   - 将系统化的、规范的、可度量的方法用于软件的开发、运行和维护的过程，即将工程化应用于软件开发中。
+
+- 
