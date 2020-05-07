@@ -32,11 +32,10 @@ product.item.assign_attributes(title: "商品条目名称")
 product.remove_attribute(:item)
 product.update(itme: new_item)
 ```
-
+- 2020.05.07 在线上环境，修复有问题数据的时候，使用上面的方法，尝试了五六次，得到product.item一直是nil，但过了一会就好了，不知道原因，记录一下。
 - 参考资料
   - [update embedded document in mongoid](https://stackoverflow.com/questions/42331389/update-embedded-document-in-mongoid)
   - [mongoid官方文档](https://docs.mongodb.com/mongoid/current/tutorials/mongoid-documents/)
-
 
 
 ### MongoDB如何进行数组元素大于某个值的查询
