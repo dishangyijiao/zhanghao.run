@@ -231,4 +231,13 @@
 - 软件工程
   - 将系统化的、规范的、可度量的方法用于软件的开发、运行和维护的过程，即将工程化应用于软件开发中。
 
-- 
+
+#### Programming
+#### Computer Architecture
+#### Algorithms and Data Structures
+#### Mathmetic For Computer Science
+#### Operating Systems
+#### Database
+#### Computer Networking
+#### Languages and Compilers
+#### Distributed Systems
