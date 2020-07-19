@@ -65,6 +65,15 @@ product.update(itme: new_item)
   ```
   > 注意上面结果，class 是`Mongo::Collection::View`
 
+### mongoDB在设定datatime默认值的时候，需要注意格式
+- 设置默认值，有两种格式，如下：
+```ruby
+field :expired_at, type: DateTime, default: Time.zone.now # 第一种
+field :expired_at, type: DateTime, default: -> { Time.zone.now } # 第二种
+```
+- 最近在这方面遇到了问题，开始的时候设置为第一种格式，导致默认时间出现了错误，查文档之后，改为放在proc中，才显示正确
+- 第一种设定的默认时间为类的加载时间
+- 第二种为文档状态的时间，即文档修改的时间
 
 ## 上线规则
 ### 上线不规范导致的问题记录
