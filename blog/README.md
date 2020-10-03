@@ -30,8 +30,10 @@ product.item.assign_attributes(title: "商品条目名称")
 
 ```ruby
 product.remove_attribute(:item)
-product.update(itme: new_item)
+product.update!(itme: new_item)
 ```
+实际操作，今天在正式环境更新了两个link，需要使用 update! 更新内嵌的资源 
+
 - 2020.05.07 在线上环境，修复有问题数据的时候，使用上面的方法，尝试了五六次，得到product.item一直是nil，但过了一会就好了，不知道原因，记录一下。
 - 参考资料
   - [update embedded document in mongoid](https://stackoverflow.com/questions/42331389/update-embedded-document-in-mongoid)
