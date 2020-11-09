@@ -1,9 +1,19 @@
 # Go学习教程
 # 本书写作目的、结构以及产出
+- 原则：先完成，再完美
 
+## 写作时的思考
+- 受众读者
+  - 从零开始学Go的学习者
+- 写Go的系列书，初级、中级、高级篇，就是把自己的学习过程，全部记录下来开源
+- 我现在也不知道书的结构是怎样的？现在想到的就是的把新手可能遇到的问题，全部整理一遍，当作一个途径，这样当他们在学习的时候，遇到问题，可以查找，更重要的是树立一个榜样，要知道有这样一个人也在学Go的过程中，遇到了各种各样的问题，建立信心，相信自己并不孤独，这是最重要的，说实话，我现在做教程的能力水平是有限，当我并不会把做出好课程当作重点，而是把过程全部记录下来，给将要学或者正在学的人以鼓励，鼓励是最重要，要知道曾经有一个人也这样做过，并且还在持续地做。要按照世界最好的标准要求自己，虽然现阶段还达不到，但内心要有这个方向指引着自己
 ## 目的
 - 教是最好的学习方法，之前学习Ruby的时候，并没完全践行，现在在学习Go要践行起来，写一本教他人入门Go的教程，有效的学习是要有产出的，仅仅学完没有产出，并没有太大的意义，所以在学习Go的过程，需要产出一个Go的开源项目。
 ## 教程的结构
+- 环境配置、Go的安装、开发工具这些都需要写清楚
+- 0基础的人，遇到的问题都需要给出相应的解答
+  - 如何提问？how to ask question?
+  - 在哪里求助？ Stack Overflow  GoCN发帖提问
 - Go的发展历史，为什么会出现Go？
 - Go有哪些重要的概念？每个概念之间的联系与区别是什么？
 - 有哪些优点？
@@ -112,7 +122,22 @@
 ## 重要概念
 
 - 原则：
-  - 需要整理Go语言中有的，而其他语言中没有的概念，这些部分才需要整理还需要整理虽然Go语言中也有，但是跟常规认识不一样的概念，也需要整理工作区
+  - 需要整理Go语言中有的，而其他语言中没有的概念，这些部分才需要整理,还需要整理虽然Go语言中也有，但是跟常规认识不一样的概念，也需要整理
+- 工作区
+- Packages
+  - 每一个Go程序是由程序包组成
+- variables
+- functions
+- switch
+- defer
+- structs
+- slices
+- maps
+- methods
+- interfaces
+- concurrency
+- go get 是什么意思？
+  - 
 - GOPATH
 - 通道
 - 字典
@@ -158,3 +183,114 @@
 # 我在Go领域的作品
 - 教程的完成
 - Go领域的开源项目
+
+
+### 学习记录
+- 2020.10.06
+  - 调换位置顺序
+  ```
+    a, b := swal("love", "myself")
+  ```
+- 2020.10.07
+  - 在函数（function）内部，变量赋值，使用 := 符号，Ruby中直接使用 =
+- 2020.10.09
+  - float64和complex128 都是一种数据类型
+- 2020.10.10
+  - 常量的声明，使用`const`关键字 
+- 2020.10.11
+  - Numeric constans 是高精度值
+  - 今天学完了《A Tour of Go》的Packages,variables, and functions部分，需要总结一下
+    - Go语言中，都需要使用main程序包，使用哪个程序包就需要引入，比如使用fmt就需要 import "fmt"
+    - 对于变量的赋值，常规的做法是加 var，需要加上赋值的数据类型，但也有简洁的赋值方法，是用`:=`，也不需要加上数据类型了，会自动识别，就目前看到的赋值方法，跟Ruby进行比较，还是Ruby中的简洁方法更多一些
+    - 对于function函数，需要在花括号中执行相应的逻辑，跟JavaScript类似
+    ```go
+    fuc main() {
+      <!--  -->
+    }
+    ```
+  - Go只有一个循环结构，即for循环，for需要用花括号括起来  {}
+
+  ```go
+    package main
+    import "fmt"
+    func main() {
+    	sum := 1
+    	for ; sum < 100; {
+    		sum += sum
+    	}
+    	fmt.Println(sum)
+    }
+  ```
+  - 把Go中的for，按照C中的while去理解，我就明白了
+  - if 也跟for一样，需要用花括号 {} 括起来
+- 2020.10.12
+  - if else的写法跟Ruby类似，但是 else前后需要用{}包裹起来
+  - pow 求平方的意思
+- 2020.10.13
+  - Loops和Functions的练习，第一遍没太看懂题意，第二遍大致理解了，还需要继续再看几遍 https://tour.golang.org/flowcontrol/8
+  - Switch 与C C++ java JavaScript PHP相比，Go的switch仅仅运行选中的因素，并非以下所有情况；另一个重要的区别是Go的switch的case不一定是常量，所涉及的值不一定是常数
+  - break 这个还没讲到
+- 2020.10.14 
+  - 复习了下 Exercise: Loops and Functions
+- 2020.10.15
+  - switch evaluation order
+  ```go
+    switch {
+      case
+      case
+      default: 
+    }
+  ```
+- 2020.10.16
+  - switch with no condition
+  ```go
+    package main
+
+    import (
+      "fmt"
+      "time"
+    )
+
+    func = main() {
+      t := time.Now()
+      switch {
+      case t.Hour() < 12:
+        fmt.Println("Good morning!")
+      case t.Hour() < 17:
+        fmt.Println("Good afternoon.")
+      default:
+        fmt.Println("Good evening")
+      }
+    }
+  ```
+
+
+- 2020.10.17
+  - defer 
+  ```go
+    package main 
+    import "fmt"
+    func main() {
+      defer fmt.Println("world")
+
+      fmt.Println("hello")
+    }
+  ```
+
+- 2020.10.18
+  - Stacking defers
+
+- 2020.10.19
+  - Pointers
+
+- 2020.10.20
+  - Pointer
+- 2020.10.21
+- 2020.10.28
+
+  ```go
+    package main
+    im
+  ```
+- 2020.11.08
+  - 
